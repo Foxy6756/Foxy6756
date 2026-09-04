@@ -1,25 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tarea1 </title>
+    <title>Registro de incidentes de seguridad | SOC</title>
 </head>
 <body>
-<nav>
-  <ul class="menu">
-    <li><a href="#">Inicio</a></li>
-    <li class="dropdown">
-      <a href="#">Servicios ▾</a>
-      <ul class="dropdown-content">
-        <li><a href="#">Diseño web</a></li>
-        <li><a href="#">SEO</a></li>
-        <li><a href="#">Marketing</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Contacto</a></li>
+
+    <header>
+           <h1>Centro de operaciones de seguridad</h1>
+     <p>Bienvenido al SOC, donde gestionamos y respondemos a incidentes de seguridad para proteger la infraestructura y los datos de nuestra organización.</p>
+     <nav aria-label="Navegación principal">
+  <ul>
+    <li><a href="#registro">Registrar incidente</a></li>
+    <li><a href="#incidentes">Incidentes detectados</a></li>
+    <li><a href="#detalles">Detalles del incidente</a></li>
   </ul>
 </nav>
+     </header>
+<main>     
+ <section id="registro">
+   <h2>Registrar nuevo incidente</h2>
 
+   <p class="section-description">Complete los campos técnicos para abrir un ticket de investigación en el SOC.</p> 
+
+
+ <form method="post" class="incident-form" >
+  <label for="tipo-de-incidente">Tipo de incidente:</label>
+   <select id="tipo-de-incidente" name="tipo-de-incidente" required>
+    <option value="">Seleccione un tipo de incidente</option>
+    <option value="phishing">Phishing</option>
+    <option value="malware">Malware</option>
+    <option value="ddos">DDoS</option>
+    </select>
+ </section>
+ <br>
+
+ <label for="nivel">Nivel de criticidad:</label>
+    <select id="nivel" name="nivel" required>
+        <option value="">Seleccione un nivel</option>
+        <option value="bajo">Bajo</option>
+        <option value="medio">Medio</option>
+        <option value="alto">Alto</option>
+
+ <br>
+    <label for="fecha">Fecha del incidente:</label>
+    <input type="date" id="fecha" name="fecha" required>
+ <br>
+    <label for="hora">Hora del incidente:</label>
+    <input type="time" id="hora" name="hora" required>
+
+ <br>
+
+    <label for="descripcion">Descripción del incidente:</label>
+    <textarea id="descripcion" name="descripcion" rows="4" required minlength="10" maxlength="200"></textarea>
+
+ <div class="form-actions full-width">
+   <button type="submit" class="btn btn-primary">generar ticket de incidente</button>
+   <button type="reset" class="btn btn-secondary">restablecer formulario</button>
+ </div>
+ </form>
+
+
+<section id="incidentes">
+  <h2>Incidentes detectados</h2>
+    <table class="incident-list"> 
+        <caption>Lista de incidentes de seguridad registrados en el SOC</caption>
+        <thead>
+                
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nivel de Criticidad</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                    <td>2026-12#1512</td>
+                    <td>phishing</td>
+                    <td>alto</td>
+                    <td>2026-06-01</td>
+                    <td>Pendiente</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-info">    
+                            
+                            Ver detalles</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2026-12#1513</td>
+                    <td>Phishing</td>
+                    <td>Alto</td>
+                    <td>2026-06-01</td>
+                    <td>En curso</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-info">    
+                            Ver detalles</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2026-12#1514</td>
+                    <td>Malware</td>
+                    <td>Medio</td>
+                    <td>2026-06-01</td>
+                    <td>Pendiente</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-info">
+                            Ver detalles</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2026-12#1515</td>
+                    <td>DDoS</td>
+                    <td>Bajo</td>
+                    <td>2026-06-01</td>
+                    <td>Investigación</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-info">
+                           Ver detalles</button>
+                    </td>
+                </tr>
+            
+            </tbody>
+        </table>
+</section>
+<section id="detalles">
+    <h2>Detalles del Incidente</h2>
+    <dl class="incident-details">
+        <p><strong>ID:</strong> 2026-12#1512</p>
+        <p><strong>Tipo:</strong> Phishing</p>
+        <p><strong>Nivel de Criticidad:</strong> Alto</p>
+        <p><strong>Fecha:</strong> 2026-06-01</p>
+        <p><strong>Estado:</strong> Pendiente</p>
+        <p><strong>Descripción:</strong> Se detectó un intento de phishing dirigido a empleados de la empresa.</p>
+    </dl>
+</section>
+</main>
+    <footer>
+        <p>&copy; 2026 SOC - Security Operations Center. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSIRT / SOC - Monitoreo de Incidentes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Encabezado principal semántico -->
+    <header class="main-header">
+        <div class="logo-area">
+            <h1>CyberShield SOC Monitor</h1>
+            <p class="tagline">Plataforma de Gestión y Respuesta a Incidentes</p>
+        </div>
+        
+        <!-- Barra de navegación adaptada a ciberseguridad -->
+        <nav class="navbar" aria-label="Navegación principal">
+            <ul class="nav-links">
+                <li><a href="#dashboard" class="active">Dashboard</a></li>
+                <li><a href="#registro">Registrar Incidente</a></li>
+                <li><a href="#incidentes">Alertas Activas</a></li>
+                <li><a href="#metricas">Métricas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenedor central del aplicativo -->
+    <div class="layout-container">
+        
+        <!-- 2. Área principal -->
+        <main class="main-content">
+            
+            <!-- Sección: Formulario accesible de registro de incidentes -->
+            <section id="registro" class="card-section">
+                <h2>Registrar Nuevo Incidente de Seguridad</h2>
+                <p class="section-desc">Complete los campos técnicos para abrir un ticket de investigación en el SOC.</p>
+                
+                <form action="#" method="post" class="incident-form" novalidate>
+                    
+                    <div class="form-group">
+                        <label for="tipo-incidente">Tipo de Incidente:</label>
+                        <select id="tipo-incidente" name="tipo_incidente" required>
+                            <option value="" disabled selected>Seleccione una categoría</option>
+                            <option value="ddos">Ataque DDoS</option>
+                            <option value="phishing">Campaña de Phishing</option>
+                            <option value="ransomware">Infección por Malware / Ransomware</option>
+                            <option value="bruteforce">Ataque de Fuerza Bruta (SSH/RDP)</option>
+                            <option value="exfiltracion">Exfiltración de Datos</option>
+                        </select>
+                        <small class="help-text">Categorice el vector de ataque principal observado.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="severidad">Nivel de Severidad:</label>
+                        <select id="severidad" name="severidad" required>
+                            <option value="" disabled selected>Nivel de criticidad</option>
+                            <option value="baja">Baja (P4)</option>
+                            <option value="media">Media (P3)</option>
+                            <option value="alta">Alta (P2)</option>
+                            <option value="critica">Crítica (P1)</option>
+                        </select>
+                        <small class="help-text">Evalúe el impacto sobre la confidencialidad, integridad o disponibilidad.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ip-origen">Dirección IP o Activo Afectado:</label>
+                        <input 
+                            type="text" 
+                            id="ip-origen" 
+                            name="ip_origen" 
+                            placeholder="Ej. 192.168.1.50 o srv-db-core" 
+                            required 
+                            pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}|[a-zA-Z0-9\-_.]+$"
+                            title="Ingrese una IP IPv4 válida o un hostname válido">
+                        <small class="help-text">Formato IPv4 o identificador de host interno.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha-deteccion">Fecha y Hora de Detección:</label>
+                        <input type="datetime-local" id="fecha-deteccion" name="fecha_deteccion" required>
+                        <small class="help-text">Marca de tiempo en la que los sensores generaron la alerta.</small>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="descripcion">Descripción Técnica y Trazas:</label>
+                        <textarea 
+                            id="descripcion" 
+                            name="descripcion" 
+                            rows="4" 
+                            placeholder="Describa el comportamiento anómalo detectado, hashes, puertos o logs observados..." 
+                            required 
+                            minlength="20"></textarea>
+                        <small class="help-text">Mínimo 20 caracteres con el contexto técnico del evento.</small>
+                    </div>
+
+                    <div class="form-actions full-width">
+                        <button type="submit" class="btn-primary">Generar Ticket de Incidente</button>
+                        <button type="reset" class="btn-secondary">Restablecer Formulario</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Sección: Listado simulado de incidentes -->
+            <section id="incidentes" class="card-section">
+                <h2>Listado de Incidentes Detectados (Últimas 24h)</h2>
+                <div class="table-responsive">
+                    <table class="incident-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tipo</th>
+                                <th>Severidad</th>
+                                <th>Activo</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#INC-2026-01</td>
+                                <td>Ransomware</td>
+                                <td><span class="badge badge-critical">Crítica</span></td>
+                                <td>10.0.4.15 (Fileserver)</td>
+                                <td>En Mitigación</td>
+                                <td><button type="button" class="btn-sm">Ver Detalle</button></td>
+                            </tr>
+                            <tr>
+                                <td>#INC-2026-02</td>
+                                <td>Ataque DDoS</td>
+                                <td><span class="badge badge-high">Alta</span></td>
+                                <td>192.168.1.1 (Gateway)</td>
+                                <td>Investigando</td>
+                                <td><button type="button" class="btn-sm">Ver Detalle</button></td>
+                            </tr>
+                            <tr>
+                                <td>#INC-2026-03</td>
+                                <td>Phishing</td>
+                                <td><span class="badge badge-medium">Media</span></td>
+                                <td>buzon-rrhh@empresa.com</td>
+                                <td>Contenido</td>
+                                <td><button type="button" class="btn-sm">Ver Detalle</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Sección: Vista de Detalle del Incidente Seleccionado -->
+            <section class="card-section incident-detail">
+                <h2>Detalle del Incidente: #INC-2026-01</h2>
+                <div class="detail-grid">
+                    <div>
+                        <strong>Categoría:</strong> Infección por Ransomware
+                    </div>
+                    <div>
+                        <strong>Sensor de Alerta:</strong> EDR Host Agent
+                    </div>
+                    <div>
+                        <strong>IP/Host Origen:</strong> 10.0.4.15
+                    </div>
+                    <div>
+                        <strong>Analista Asignado:</strong> Guardián Nivel 2
+                    </div>
+                    <div class="full-width">
+                        <strong>Diagnóstico Preliminar:</strong>
+                        <p>Detección de patrones anómalos de escritura y cifrado masivo de archivos en carpetas compartidas SMB. Se aisló el host de la red VLAN local a las 14:15 UTC para contener propagación lateral.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 3. Barra lateral complementaria (Aside) -->
+        <aside class="sidebar">
+            <section class="widget">
+                <h3>Estado de Sensores SOC</h3>
+                <ul class="status-list">
+                    <li><span class="status-indicator online"></span> Firewall Perimetral: <strong>Activo</strong></li>
+                    <li><span class="status-indicator online"></span> IDS/IPS Suricata: <strong>Activo</strong></li>
+                    <li><span class="status-indicator warning"></span> SIEM Elastic: <strong>Latencia Alta</strong></li>
+                    <li><span class="status-indicator online"></span> EDR Agents: <strong>Protegido</strong></li>
+                </ul>
+            </section>
+
+            <section class="widget">
+                <h3>Nivel de Amenaza Global</h3>
+                <div class="threat-box">
+                    <p class="threat-level">DEFCON 3</p>
+                    <small>Monitoreo reforzado en puertos SSH/RDP externos.</small>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <!-- 4. Pie de página semántico -->
+    <footer class="main-footer">
+        <p>© 2026 SOC Platform - Sistema de Gestión de Ciberseguridad. Entorno de Laboratorio Académico.</p>
+    </footer>
+
+</body>
+</html> 
