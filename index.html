@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de incidentes de seguridad | SOC</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -33,7 +34,7 @@
     <option value="malware">Malware</option>
     <option value="ddos">DDoS</option>
     </select>
- </section>
+
  <br>
 
  <label for="nivel">Nivel de criticidad:</label>
@@ -42,6 +43,8 @@
         <option value="bajo">Bajo</option>
         <option value="medio">Medio</option>
         <option value="alto">Alto</option>
+    </select>
+  
 
  <br>
     <label for="fecha">Fecha del incidente:</label>
@@ -130,13 +133,26 @@
 <section id="detalles">
     <h2>Detalles del Incidente</h2>
     <dl class="incident-details">
-        <p><strong>ID:</strong> 2026-12#1512</p>
-        <p><strong>Tipo:</strong> Phishing</p>
-        <p><strong>Nivel de Criticidad:</strong> Alto</p>
-        <p><strong>Fecha:</strong> 2026-06-01</p>
-        <p><strong>Estado:</strong> Pendiente</p>
-        <p><strong>Descripción:</strong> Se detectó un intento de phishing dirigido a empleados de la empresa.</p>
+        <dt>ID:</dt> 
+
+        <dd style="color: rgb(252, 252, 252);"><b>2026-12#1512</b></dd>
+
+        <dt>Tipo:</dt>
+        <dd style="color: rgb(252, 252, 252);"><b>Phishing</b></dd>
+
+        <dt>Nivel de Criticidad:</dt>
+        <dd style="color: rgb(252, 252, 252);"><b>Alto</b></dd>
+
+        <dt>Fecha:</dt>
+        <dd style="color: rgb(252, 252, 252);"><b>2026-06-01</b></dd>
+
+        <dt>Estado:</dt>
+        <dd style="color: rgb(252, 252, 252);"><b>Pendiente</b></dd>
+
+        <dt>Descripción:</dt>
+        <dd style="color: rgb(252, 252, 252);"><b>Se detectó un intento de phishing dirigido a empleados de la empresa.</b></dd>
     </dl>
+
 </section>
 </main>
     <footer>
