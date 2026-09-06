@@ -26,7 +26,7 @@
    <p class="section-description">Complete los campos técnicos para abrir un ticket de investigación en el SOC.</p> 
 
 
- <form method="post" class="incident-form" >
+ <form action="incidente" method="post" class="incident-form" >
   <label for="tipo-de-incidente">Tipo de incidente:</label>
    <select id="tipo-de-incidente" name="tipo-de-incidente" required>
     <option value="">Seleccione un tipo de incidente</option>
@@ -42,7 +42,7 @@
         <option value="">Seleccione un nivel</option>
         <option value="bajo">Bajo</option>
         <option value="medio">Medio</option>
-        <option value="alto">Alto</option>
+        <option value="Alto">Alto</option>
     </select>
   
 
@@ -56,14 +56,14 @@
  <br>
 
     <label for="descripcion">Descripción del incidente:</label>
-    <textarea id="descripcion" name="descripcion" rows="4" required minlength="10" maxlength="200"></textarea>
+    <textarea id="descripcion" aria-label="Descripción del incidente" name="descripcion" rows="4" required minlength="50" maxlength="200"></textarea>
 
  <div class="form-actions full-width">
    <button type="submit" class="btn btn-primary">generar ticket de incidente</button>
    <button type="reset" class="btn btn-secondary">restablecer formulario</button>
  </div>
  </form>
-
+ </section>
 
 <section id="incidentes">
   <h2>Incidentes detectados</h2>
@@ -83,12 +83,12 @@
             <tbody>
              <tr>
                     <td>2026-12#1512</td>
-                    <td>phishing</td>
-                    <td>alto</td>
+                    <td>Phishing</td>
+                    <td>Alto</td>
                     <td>2026-06-01</td>
                     <td>Pendiente</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-info">    
+                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">    
                             
                             Ver detalles</button>
                     </td>
@@ -100,7 +100,7 @@
                     <td>2026-06-01</td>
                     <td>En curso</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-info">    
+                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">    
                             Ver detalles</button>
                     </td>
                 </tr>
@@ -111,7 +111,7 @@
                     <td>2026-06-01</td>
                     <td>Pendiente</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-info">
+                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">
                             Ver detalles</button>
                     </td>
                 </tr>
@@ -122,7 +122,7 @@
                     <td>2026-06-01</td>
                     <td>Investigación</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-info">
+                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">
                            Ver detalles</button>
                     </td>
                 </tr>
@@ -150,8 +150,9 @@
         <dd style="color: rgb(252, 252, 252);"><b>Pendiente</b></dd>
 
         <dt>Descripción:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>Se detectó un intento de phishing dirigido a empleados de la empresa.</b></dd>
+        <dd style="color: rgb(252, 252, 252);"><b>Se detectó un intento de Phishing dirigido a empleados de la empresa.</b></dd>
     </dl>
+    
 
 </section>
 </main>
