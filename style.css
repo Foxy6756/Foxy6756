@@ -251,6 +251,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  min-width: 0; /* Permite que la cuadricula se adapte sin desbordar el movil */
 }
 
 /* Secciones generales */
@@ -392,9 +393,18 @@ h2 {
 /* Tabla de Incidentes */
 .incident-list {
   width: 100%;
+  min-width: 700px; /* Mantiene las columnas legibles antes de activar el scroll */
   border-collapse: collapse;
   margin-top: 1rem;
   font-size: 0.875rem;
+}
+
+/* El desplazamiento pertenece a la tabla, no a toda la tarjeta de incidentes. */
+.table-container {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .incident-list caption {
@@ -477,6 +487,17 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+  /* Reduce el espacio exterior para aprovechar mejor el ancho del telefono. */
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  header,
+  section,
+  .sidebar-services {
+    padding: 1.25rem;
+  }
+
   .layout-container {
     grid-template-columns: 1fr;
   }
@@ -500,8 +521,17 @@ footer {
     margin-top: 0.75rem;
   }
 
-  /* Scroll horizontal para la tabla en móviles */
-  section#incidentes {
-    overflow-x: auto;
+  /* La tabla se desplaza horizontalmente sin deformar la seccion. */
+  .table-container {
+    margin-right: -0.25rem;
+  }
+
+  .incident-list {
+    font-size: 0.8rem;
+  }
+
+  .incident-list th,
+  .incident-list td {
+    padding: 0.7rem 0.75rem;
   }
 }
