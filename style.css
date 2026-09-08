@@ -27,6 +27,147 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+
+
+/* ==========================================
+   PANEL LATERAL (ASIDE) - 3 TARJETAS LADO A LADO
+   ========================================== */
+
+/* Contenedor principal del Aside */
+.sidebar-services {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.sidebar-services h3 {
+  color: #f8fafc;
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid #0284c7;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Disposición horizontal: 3 columnas de igual tamaño usando CSS Grid */
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
+  gap: 1.25rem; /* Espaciado uniforme entre cada tarjeta */
+  align-items: stretch;
+}
+
+/* Tarjetas individuales verticales */
+.service-card.vertical {
+  width: 100%;
+  background-color: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  overflow: hidden; /* Oculta el desbordamiento de la imagen */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* EFECTO HOVER: Elevación y sombra de la tarjeta */
+.service-card.vertical:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  border-color: #38bdf8;
+  transform: translateY(-4px);
+}
+
+/* Marco vertical de la imagen */
+.card-image-box {
+  width: 100%;
+  height: 240px; /* Altura tipo póster vertical */
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out; /* Transición suave para el zoom */
+}
+
+/* EFECTO HOVER: Agrandar la imagen al pasar el cursor */
+.service-card.vertical:hover .card-image-box img {
+  transform: scale(1.15); /* Crece un 15% */
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.card-content h4 {
+  color: #38bdf8;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.card-content p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Botones inferiores */
+.card-btn {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+/* Colores de los botones */
+.btn-buy {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+.btn-buy:hover {
+  background-color: #15803d;
+}
+
+.btn-info {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+.btn-info:hover {
+  background-color: #0369a1;
+}
+
+.btn-services {
+  background-color: #475569;
+  color: #ffffff;
+}
+.btn-services:hover {
+  background-color: #334155;
+}
+
+/* Media Query: adaptabilidad responsiva para pantallas móviles */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en dispositivos móviles */
+  }
+}
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -97,9 +238,16 @@ nav a:hover {
 }
 
 /* Contenedor principal */
-main {
+.layout-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: start;
+}
+
+main {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
@@ -329,6 +477,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+  }
+
   .incident-form {
     grid-template-columns: 1fr;
   }

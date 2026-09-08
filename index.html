@@ -3,159 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de incidentes de seguridad | SOC</title>
+    <title>Registro de Incidentes de Seguridad | SOC</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-           <h1>Centro de operaciones de seguridad</h1>
-     <p>Bienvenido al SOC, donde gestionamos y respondemos a incidentes de seguridad para proteger la infraestructura y los datos de nuestra organización.</p>
-     <nav aria-label="Navegación principal">
-  <ul>
-    <li><a href="#registro">Registrar incidente</a></li>
-    <li><a href="#incidentes">Incidentes detectados</a></li>
-    <li><a href="#detalles">Detalles del incidente</a></li>
-  </ul>
-</nav>
-     </header>
-<main>     
- <section id="registro">
-   <h2>Registrar nuevo incidente</h2>
-
-   <p class="section-description">Complete los campos técnicos para abrir un ticket de investigación en el SOC.</p> 
+        <h1>Centro de Operaciones de Seguridad (SOC)</h1>
+        <p>Gestión y respuesta activa ante incidentes para la protección de la infraestructura crítica.</p>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#registro">Registrar incidente</a></li>
+                <li><a href="#incidentes">Incidentes detectados</a></li>
+                <li><a href="#detalles">Detalles del incidente</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
- <form action="incidente" method="post" class="incident-form" >
-  <label for="tipo-de-incidente">Tipo de incidente:</label>
-   <select id="tipo-de-incidente" name="tipo-de-incidente" required>
-    <option value="">Seleccione un tipo de incidente</option>
-    <option value="phishing">Phishing</option>
-    <option value="malware">Malware</option>
-    <option value="ddos">DDoS</option>
-    </select>
-
- <br>
-
- <label for="nivel">Nivel de criticidad:</label>
-    <select id="nivel" name="nivel" required>
-        <option value="">Seleccione un nivel</option>
-        <option value="bajo">Bajo</option>
-        <option value="medio">Medio</option>
-        <option value="Alto">Alto</option>
-    </select>
-  
-
- <br>
-    <label for="fecha">Fecha del incidente:</label>
-    <input type="date" id="fecha" name="fecha" required>
- <br>
-    <label for="hora">Hora del incidente:</label>
-    <input type="time" id="hora" name="hora" required>
-
- <br>
-
-    <label for="descripcion">Descripción del incidente:</label>
-    <textarea id="descripcion" aria-label="Descripción del incidente" name="descripcion" rows="4" required minlength="50" maxlength="200"></textarea>
-
- <div class="form-actions full-width">
-   <button type="submit" class="btn btn-primary">generar ticket de incidente</button>
-   <button type="reset" class="btn btn-secondary">restablecer formulario</button>
- </div>
- </form>
- </section>
-
-<section id="incidentes">
-  <h2>Incidentes detectados</h2>
-    <table class="incident-list"> 
-        <caption>Lista de incidentes de seguridad registrados en el SOC</caption>
-        <thead>
-                
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Nivel de Criticidad</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-             <tr>
-                    <td>2026-12#1512</td>
-                    <td>Phishing</td>
-                    <td>Alto</td>
-                    <td>2026-06-01</td>
-                    <td>Pendiente</td>
-                    <td>
-                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">    
-                            
-                            Ver detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2026-12#1513</td>
-                    <td>Phishing</td>
-                    <td>Alto</td>
-                    <td>2026-06-01</td>
-                    <td>En curso</td>
-                    <td>
-                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">    
-                            Ver detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2026-12#1514</td>
-                    <td>Malware</td>
-                    <td>Medio</td>
-                    <td>2026-06-01</td>
-                    <td>Pendiente</td>
-                    <td>
-                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">
-                            Ver detalles</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2026-12#1515</td>
-                    <td>DDoS</td>
-                    <td>Bajo</td>
-                    <td>2026-06-01</td>
-                    <td>Investigación</td>
-                    <td>
-                        <button aria-label="Ver detalles" type="button" class="btn btn-sm btn-info">
-                           Ver detalles</button>
-                    </td>
-                </tr>
-            
-            </tbody>
-        </table>
-</section>
-<section id="detalles">
-    <h2>Detalles del Incidente</h2>
-    <dl class="incident-details">
-        <dt>ID:</dt> 
-
-        <dd style="color: rgb(252, 252, 252);"><b>2026-12#1512</b></dd>
-
-        <dt>Tipo:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>Phishing</b></dd>
-
-        <dt>Nivel de Criticidad:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>Alto</b></dd>
-
-        <dt>Fecha:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>2026-06-01</b></dd>
-
-        <dt>Estado:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>Pendiente</b></dd>
-
-        <dt>Descripción:</dt>
-        <dd style="color: rgb(252, 252, 252);"><b>Se detectó un intento de Phishing dirigido a empleados de la empresa.</b></dd>
-    </dl>
+    <aside class="sidebar-services" aria-label="Servicios y herramientas adicionales">
+  <h3>Servicios de Seguridad</h3>
+  <div class="cards-wrapper">
     
+    <!-- Tarjeta 1: Comprar -->
+    <article class="service-card vertical">
+      <div class="card-image-box">
+        <img src="https://picsum.photos/300/450?random=20" alt="Auditoría de Vulnerabilidades">
+      </div>
+      <div class="card-content">
+        <h4>Auditoría SOC</h4>
+        <p>Evaluación completa de vulnerabilidades para tu infraestructura.</p>
+        <a href="#comprar" class="card-btn btn-buy">Comprar</a>
+      </div>
+    </article>
 
-</section>
-</main>
+    <!-- Tarjeta 2: Más información -->
+    <article class="service-card vertical">
+      <div class="card-image-box">
+        <img src="https://picsum.photos/300/450?random=21" alt="Monitoreo 24/7 de Redes">
+      </div>
+      <div class="card-content">
+        <h4>Monitoreo 24/7</h4>
+        <p>Supervisión en tiempo real ante amenazas y ataques DDoS.</p>
+        <a href="#info" class="card-btn btn-info">Más información</a>
+      </div>
+    </article>
+
+    <!-- Tarjeta 3: Otros servicios -->
+    <article class="service-card vertical">
+      <div class="card-image-box">
+        <img src="https://picsum.photos/300/450?random=22" alt="Capacitación en Ciberseguridad">
+      </div>
+      <div class="card-content">
+        <h4>Capacitación</h4>
+        <p>Talleres de concienciación y prevención de Phishing.</p>
+        <a href="#servicios" class="card-btn btn-services">Otros servicios</a>
+      </div>
+    </article>
+
+  </div>
+</aside>
+    
+    <div class="layout-container">
+        <main>     
+            <section id="registro">
+                <h2>Registrar Nuevo Incidente</h2>
+                <p class="section-description">Complete los campos técnicos obligatorios para generar un ticket de investigación.</p> 
+
+                <form action="#" method="post" class="incident-form">
+                    <div class="form-group">
+                        <label for="tipo-de-incidente">Tipo de incidente:</label>
+                        <select id="tipo-de-incidente" name="tipo-de-incidente" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="phishing">Phishing</option>
+                            <option value="malware">Malware</option>
+                            <option value="ddos">DDoS</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nivel">Nivel de criticidad:</label>
+                        <select id="nivel" name="nivel" required>
+                            <option value="">Seleccione nivel</option>
+                            <option value="bajo">Bajo</option>
+                            <option value="medio">Medio</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha del incidente:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hora">Hora del incidente:</label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="descripcion">Descripción del incidente:</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" required minlength="50" maxlength="200" placeholder="Describa el vector de ataque y los sistemas afectados (mínimo 50 caracteres)..."></textarea>
+                        <span class="help-text">Mínimo 50 y máximo 200 caracteres.</span>
+                    </div>
+
+                    <div class="form-actions full-width">
+                        <button type="submit" class="btn btn-primary">Generar Ticket</button>
+                        <button type="reset" class="btn btn-secondary">Restablecer</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="incidentes">
+                <h2>Incidentes Detectados</h2>
+                <div class="table-container">
+                    <table class="incident-list"> 
+                        <caption>Lista de incidentes de seguridad registrados en el SOC</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Criticidad</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-12#1512</td>
+                                <td>Phishing</td>
+                                <td><span class="badge badge-high">Alto</span></td>
+                                <td>2026-06-01</td>
+                                <td>Pendiente</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1512">Ver detalles</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-12#1513</td>
+                                <td>Phishing</td>
+                                <td><span class="badge badge-high">Alto</span></td>
+                                <td>2026-06-01</td>
+                                <td>En curso</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1513">Ver detalles</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2026-12#1514</td>
+                                <td>Malware</td>
+                                <td><span class="badge badge-medium">Medio</span></td>
+                                <td>2026-06-01</td>
+                                <td>Pendiente</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1514">Ver detalles</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="detalles">
+                <h2>Detalles del Incidente</h2>
+                <dl class="incident-details">
+                    <dt>ID:</dt> 
+                    <dd>2026-12#1512</dd>
+
+                    <dt>Tipo:</dt>
+                    <dd>Phishing</dd>
+
+                    <dt>Nivel de Criticidad:</dt>
+                    <dd>Alto</dd>
+
+                    <dt>Fecha:</dt>
+                    <dd>2026-06-01</dd>
+
+                    <dt>Estado:</dt>
+                    <dd>Pendiente</dd>
+
+                    <dt>Descripción:</dt>
+                    <dd>Se detectó un intento de Phishing dirigido a empleados de la empresa a través de correos con enlaces maliciosos.</dd>
+                </dl>
+            </section>
+        </main>
+
+        <!-- Etiqueta aside requerida en las instrucciones -->
+        <aside aria-label="Métricas de Seguridad">
+            <h3>Estado del SOC</h3>
+            <div class="widget-status">
+                <p><strong>Nivel de Amenaza Global:</strong> Elevado</p>
+                <p><strong>Incidentes Activos:</strong> 4</p>
+                <p><strong>Tiempo Medio de Respuesta:</strong> 12 min</p>
+            </div>
+        </aside>
+    </div>
+
     <footer>
         <p>&copy; 2026 SOC - Security Operations Center. Todos los derechos reservados.</p>
     </footer>
