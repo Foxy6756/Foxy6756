@@ -1,0 +1,46 @@
+[
+  {
+    "id": "2026-12#1512",
+    "tipo": "phishing",
+    "tipoNombre": "Phishing",
+    "nivel": "alto",
+    "nivelNombre": "Alto",
+    "fecha": "2026-06-01",
+    "hora": "09:42",
+    "estado": "Pendiente",
+    "descripcion": "Se detectó un intento de exfiltración dirigido al personal contable mediante hipervínculos ofuscados y suplantación de dominio corporativo."
+  },
+  {
+    "id": "2026-12#1513",
+    "tipo": "fuerza-bruta",
+    "tipoNombre": "Fuerza Bruta",
+    "nivel": "alto",
+    "nivelNombre": "Alto",
+    "fecha": "2026-06-01",
+    "hora": "10:15",
+    "estado": "En curso",
+    "descripcion": "Múltiples intentos fallidos de autenticación SSH provenientes de un pool de direcciones IP no reconocidas contra el servidor perimetral."
+  },
+  {
+    "id": "2026-12#1514",
+    "tipo": "malware",
+    "tipoNombre": "Malware",
+    "nivel": "medio",
+    "nivelNombre": "Medio",
+    "fecha": "2026-06-01",
+    "hora": "11:30",
+    "estado": "Resuelto",
+    "descripcion": "Ejecución anómala de binario sospechoso contenida por el software EDR en un equipo de la red departamental de finanzas."
+  },
+  {
+    "id": "2026-12#1515",
+    "tipo": "ddos",
+    "tipoNombre": "DDoS",
+    "nivel": "critico",
+    "nivelNombre": "Crítico",
+    "fecha": "2026-06-02",
+    "hora": "02:10",
+    "estado": "Resuelto",
+    "descripcion": "Ataque volumétrico de denegación de servicio distribuido mitigado mediante balanceo de carga y reglas de firewall dinámicas."
+  }
+]

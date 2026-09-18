@@ -3,205 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Incidentes de Seguridad | SOC</title>
+    <meta name="description" content="Plataforma SOC para la monitorización, gestión reactiva y registro de tickets e incidentes de ciberseguridad corporativa.">
+    <title>Centro de Operaciones de Seguridad | SOC Dashboard U2</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Región ARIA Live accesible para anuncios dinámicos del DOM a tecnologías asistivas -->
+    <div id="aria-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
     <header>
-        <h1>Centro de Operaciones de Seguridad (SOC)</h1>
-        <p>Gestión y respuesta activa ante incidentes para la protección de la infraestructura crítica.</p>
+        <div class="header-brand">
+            <div class="brand-badge">SOC PLATFORM • UNIDAD 2</div>
+            <h1>Centro de Operaciones de Seguridad</h1>
+            <p>Gestión y respuesta activa ante incidentes para la protección de la infraestructura crítica.</p>
+        </div>
         <nav aria-label="Navegación principal">
             <ul>
-                <li><a href="#registro">Registrar incidente</a></li>
+                <li><a href="#registro" class="active">Registrar incidente</a></li>
                 <li><a href="#incidentes">Incidentes detectados</a></li>
-                <li><a href="#detalles">Detalles del incidente</a></li>
+                <li><a href="#detalles">Detalles</a></li>
+                <li><a href="#servicios-soc">Servicios</a></li>
             </ul>
         </nav>
     </header>
 
-
-    <aside class="sidebar-services" aria-label="Servicios y herramientas adicionales">
-  <h3>Servicios de Seguridad</h3>
-  <div class="cards-wrapper">
-    
-    <!-- Tarjeta 1: Comprar -->
-    <article class="service-card vertical">
-      <div class="card-image-box">
-        <img src="https://picsum.photos/300/450?random=20" alt="Auditoría de Vulnerabilidades">
-      </div>
-      <div class="card-content">
-        <h4>Auditoría SOC</h4>
-        <p>Evaluación completa de vulnerabilidades para tu infraestructura.</p>
-        <a href="#comprar" class="card-btn btn-buy">Comprar</a>
-      </div>
-    </article>
-
-    <!-- Tarjeta 2: Más información -->
-    <article class="service-card vertical">
-      <div class="card-image-box">
-        <img src="https://picsum.photos/300/450?random=21" alt="Monitoreo 24/7 de Redes">
-      </div>
-      <div class="card-content">
-        <h4>Monitoreo 24/7</h4>
-        <p>Supervisión en tiempo real ante amenazas y ataques DDoS.</p>
-        <a href="#info" class="card-btn btn-info">Más información</a>
-      </div>
-    </article>
-
-    <!-- Tarjeta 3: Otros servicios -->
-    <article class="service-card vertical">
-      <div class="card-image-box">
-        <img src="https://picsum.photos/300/450?random=22" alt="Capacitación en Ciberseguridad">
-      </div>
-      <div class="card-content">
-        <h4>Capacitación</h4>
-        <p>Talleres de concienciación y prevención de Phishing.</p>
-        <a href="#servicios" class="card-btn btn-services">Otros servicios</a>
-      </div>
-    </article>
-
-  </div>
-</aside>
-    
     <div class="layout-container">
-        <main>     
-            <section id="registro">
-                <h2>Registrar Nuevo Incidente</h2>
-                <p class="section-description">Complete los campos técnicos obligatorios para generar un ticket de investigación.</p> 
-
-                <form action="#" method="post" class="incident-form">
-                    <div class="form-group">
-                        <label for="tipo-de-incidente">Tipo de incidente:</label>
-                        <select id="tipo-de-incidente" name="tipo-de-incidente" required>
-                            <option value="">Seleccione una opción</option>
-                            <option value="phishing">Phishing</option>
-                            <option value="malware">Malware</option>
-                            <option value="ddos">DDoS</option>
-                        </select>
+        <main>
+            <!-- Formulario de Triaje Dinámico -->
+            <section id="registro" class="panel-card" aria-labelledby="titulo-registro">
+                <div class="panel-header">
+                    <div>
+                        <h2 id="titulo-registro">Registrar Nuevo Incidente</h2>
+                        <p class="section-description">Complete los campos obligatorios para generar un ticket validado en tiempo real.</p>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="nivel">Nivel de criticidad:</label>
-                        <select id="nivel" name="nivel" required>
-                            <option value="">Seleccione nivel</option>
-                            <option value="bajo">Bajo</option>
-                            <option value="medio">Medio</option>
-                            <option value="alto">Alto</option>
-                        </select>
-                    </div>
+                <form class="incident-form" novalidate>
+                    <fieldset class="form-fieldset">
+                        <legend>Parámetros Técnicos del Incidente</legend>
 
-                    <div class="form-group">
-                        <label for="fecha">Fecha del incidente:</label>
-                        <input type="date" id="fecha" name="fecha" required>
-                    </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tipo-de-incidente">Tipo de vector:</label>
+                                <select id="tipo-de-incidente" name="tipo-de-incidente" required>
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="phishing">Phishing</option>
+                                    <option value="malware">Malware</option>
+                                    <option value="ddos">DDoS</option>
+                                    <option value="fuerza-bruta">Fuerza Bruta</option>
+                                </select>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="hora">Hora del incidente:</label>
-                        <input type="time" id="hora" name="hora" required>
-                    </div>
+                            <div class="form-group">
+                                <label for="nivel">Nivel de criticidad:</label>
+                                <select id="nivel" name="nivel" required>
+                                    <option value="">Seleccione nivel</option>
+                                    <option value="bajo">Bajo (P4)</option>
+                                    <option value="medio">Medio (P3)</option>
+                                    <option value="alto">Alto (P2)</option>
+                                    <option value="critico">Crítico (P1)</option>
+                                </select>
+                            </div>
 
-                    <div class="form-group full-width">
-                        <label for="descripcion">Descripción del incidente:</label>
-                        <textarea id="descripcion" name="descripcion" rows="4" required minlength="50" maxlength="200" placeholder="Describa el vector de ataque y los sistemas afectados (mínimo 50 caracteres)..."></textarea>
-                        <span class="help-text">Mínimo 50 y máximo 200 caracteres.</span>
-                    </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha del incidente:</label>
+                                <input type="date" id="fecha" name="fecha" required max="2026-12-31">
+                            </div>
 
-                    <div class="form-actions full-width">
-                        <button type="submit" class="btn btn-primary">Generar Ticket</button>
-                        <button type="reset" class="btn btn-secondary">Restablecer</button>
-                    </div>
+                            <div class="form-group">
+                                <label for="hora">Hora de detección:</label>
+                                <input type="time" id="hora" name="hora" required>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="descripcion">Descripción técnica:</label>
+                                <textarea id="descripcion" 
+                                          name="descripcion" 
+                                          rows="4" 
+                                          required 
+                                          minlength="50" 
+                                          maxlength="500" 
+                                          aria-describedby="descripcion-ayuda"
+                                          placeholder="Describa el vector de ataque detectado, las direcciones IP origen/destino y los activos comprometidos..."></textarea>
+                                <span id="descripcion-ayuda" class="help-text">Mínimo 50 y máximo 500 caracteres descriptivos para el triaje.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="btn-submit">Generar Ticket</button>
+                            <button type="reset" class="btn btn-secondary">Restablecer Formulario</button>
+                        </div>
+                    </fieldset>
                 </form>
             </section>
 
-            <section id="incidentes">
-                <h2>Incidentes Detectados</h2>
-                <div class="table-container">
+            <!-- Tabla Reactiva de Incidentes (Renderizada dinámicamente vía Fetch y DOM) -->
+            <section id="incidentes" class="panel-card" aria-labelledby="titulo-incidentes">
+                <div class="panel-header">
+                    <div>
+                        <h2 id="titulo-incidentes">Incidentes Detectados</h2>
+                        <p class="section-description">Tickets sincronizados desde el catálogo local y generados en sesión.</p>
+                    </div>
+                </div>
+
+                <div class="table-container" tabindex="0" role="region" aria-label="Tabla de incidentes con scroll horizontal">
                     <table class="incident-list"> 
-                        <caption>Lista de incidentes de seguridad registrados en el SOC</caption>
+                        <caption>Registro auditado de tickets de seguridad activos en el SOC</caption>
                         <thead>
                             <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Tipo</th>
+                                <th scope="col">ID Ticket</th>
+                                <th scope="col">Vector</th>
                                 <th scope="col">Criticidad</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Estado</th>
-                                <th scope="col">Acciones</th>
+                                <th scope="col" class="text-right">Acción</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>2026-12#1512</td>
-                                <td>Phishing</td>
-                                <td><span class="badge badge-high">Alto</span></td>
-                                <td>2026-06-01</td>
-                                <td>Pendiente</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1512">Ver detalles</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2026-12#1513</td>
-                                <td>Phishing</td>
-                                <td><span class="badge badge-high">Alto</span></td>
-                                <td>2026-06-01</td>
-                                <td>En curso</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1513">Ver detalles</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2026-12#1514</td>
-                                <td>Malware</td>
-                                <td><span class="badge badge-medium">Medio</span></td>
-                                <td>2026-06-01</td>
-                                <td>Pendiente</td>
-                                <td>
-                                    <button type="button" class="btn btn-sm btn-info" aria-label="Ver detalles del incidente 1514">Ver detalles</button>
-                                </td>
-                            </tr>
+                        <tbody id="tabla-incidentes-body">
+                            <!-- Inyección dinámica desde app.js -->
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <section id="detalles">
-                <h2>Detalles del Incidente</h2>
-                <dl class="incident-details">
-                    <dt>ID:</dt> 
-                    <dd>2026-12#1512</dd>
+            <!-- Ficha de Detalles Forenses -->
+            <section id="detalles" class="panel-card" aria-labelledby="titulo-detalles">
+                <div class="panel-header">
+                    <div>
+                        <h2 id="titulo-detalles">Detalles del Incidente Seleccionado</h2>
+                        <p class="section-description">Visor forense actualizado en tiempo real según selección en tabla.</p>
+                    </div>
+                </div>
 
-                    <dt>Tipo:</dt>
-                    <dd>Phishing</dd>
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <span class="detail-key">ID Ticket</span>
+                        <span class="detail-val ticket-code" id="detalle-id">--</span>
+                    </div>
+                    <div class="detail-box">
+                        <span class="detail-key">Tipo de Vector</span>
+                        <span class="detail-val" id="detalle-tipo">--</span>
+                    </div>
+                    <div class="detail-box">
+                        <span class="detail-key">Nivel de Criticidad</span>
+                        <span class="detail-val" id="detalle-nivel">--</span>
+                    </div>
+                    <div class="detail-box">
+                        <span class="detail-key">Fecha y Hora de Detección</span>
+                        <span class="detail-val" id="detalle-fecha">--</span>
+                    </div>
+                    <div class="detail-box">
+                        <span class="detail-key">Estado Operativo</span>
+                        <span class="detail-val" id="detalle-estado">--</span>
+                    </div>
+                    <div class="detail-box full-span">
+                        <span class="detail-key">Descripción Técnica y Hallazgos</span>
+                        <p class="detail-desc" id="detalle-descripcion">Seleccione un incidente de la lista para inspeccionar sus hallazgos forenses.</p>
+                    </div>
+                </div>
+            </section>
 
-                    <dt>Nivel de Criticidad:</dt>
-                    <dd>Alto</dd>
+            <!-- Sección de Servicios Operativos -->
+            <section id="servicios-soc" class="panel-card" aria-labelledby="titulo-servicios">
+                <div class="panel-header">
+                    <div>
+                        <h2 id="titulo-servicios">Servicios Operativos de Seguridad</h2>
+                        <p class="section-description">Módulos de respuesta y soporte técnico disponibles.</p>
+                    </div>
+                </div>
 
-                    <dt>Fecha:</dt>
-                    <dd>2026-06-01</dd>
+                <div class="cards-wrapper">
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <svg role="img" aria-label="Icono de auditoría" viewBox="0 0 24 24" class="card-svg">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Auditoría SOC</h3>
+                            <p>Evaluación continua de vulnerabilidades sobre la superficie de ataque corporativa.</p>
+                            <button type="button" class="btn btn-outline">Solicitar Evaluación</button>
+                        </div>
+                    </article>
 
-                    <dt>Estado:</dt>
-                    <dd>Pendiente</dd>
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <svg role="img" aria-label="Icono de monitoreo 24/7" viewBox="0 0 24 24" class="card-svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Monitoreo 24/7</h3>
+                            <p>Supervisión en tiempo real ante amenazas avanzadas persistentes y denegación de servicio.</p>
+                            <button type="button" class="btn btn-outline">Consultar Estado</button>
+                        </div>
+                    </article>
 
-                    <dt>Descripción:</dt>
-                    <dd>Se detectó un intento de Phishing dirigido a empleados de la empresa a través de correos con enlaces maliciosos.</dd>
-                </dl>
+                    <article class="service-card">
+                        <div class="card-image-box">
+                            <svg role="img" aria-label="Icono de capacitación" viewBox="0 0 24 24" class="card-svg">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Capacitación</h3>
+                            <p>Concienciación y simulacros controlados contra vectores de ingeniería social.</p>
+                            <button type="button" class="btn btn-outline">Ver Programas</button>
+                        </div>
+                    </article>
+                </div>
             </section>
         </main>
 
-        <!-- Etiqueta aside requerida en las instrucciones -->
+        <!-- Aside con Métricas Reactivas -->
+        <aside class="sidebar-metrics" aria-label="Métricas de Seguridad">
+            <div class="sidebar-sticky">
+                <h3>Estado del SOC</h3>
+                
+                <div class="kpi-card">
+                    <span class="kpi-title">Nivel de Amenaza</span>
+                    <div class="kpi-body">
+                        <span class="status-indicator dot-high"></span>
+                        <span class="kpi-value text-high" id="kpi-nivel-alerta">Elevado (DEFCON 2)</span>
+                    </div>
+                </div>
 
-    </div>
-        <aside aria-label="Métricas de Seguridad">
-            <h3>Estado del SOC</h3>
-            <div class="widget-status">
-                <p><strong>Nivel de Amenaza Global:</strong> Elevado</p>
-                <p><strong>Incidentes Activos:</strong> 4</p>
-                <p><strong>Tiempo Medio de Respuesta:</strong> 12 min</p>
+                <div class="kpi-card">
+                    <span class="kpi-title">Incidentes Totales</span>
+                    <div class="kpi-body">
+                        <span class="kpi-number" id="kpi-total-incidentes">00</span>
+                        <span class="kpi-sub">En catálogo</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <span class="kpi-title">Tiempo Medio de Respuesta</span>
+                    <div class="kpi-body">
+                        <span class="kpi-number">12 <small>min</small></span>
+                        <span class="kpi-sub text-success">&darr; 8% vs anterior</span>
+                    </div>
+                </div>
+
+                <div class="quick-status">
+                    <p class="quick-title">Servicios Auditados</p>
+                    <div class="status-row">
+                        <span>Firewalls Perimetrales</span>
+                        <span class="status-pill status-resolved">100% OK</span>
+                    </div>
+                    <div class="status-row">
+                        <span>Servidor SIEM / Syslog</span>
+                        <span class="status-pill status-resolved">Activo</span>
+                    </div>
+                </div>
             </div>
         </aside>
+    </div>
+
     <footer>
-        <p>&copy; 2026 SOC - Security Operations Center. Todos los derechos reservados.</p>
+        <p>&copy; 2026 SOC - Security Operations Center • Evaluación Unidad 2</p>
     </footer>
+
+    <!-- Dependencias de Scripts: jQuery (para animaciones y selectores) + Módulo MVC Nativo -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
 </body>
 </html>

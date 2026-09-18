@@ -1,0 +1,12 @@
+{
+  "name": "prototipo-cliente-servidor-soc",
+  "version": "1.0.0",
+  "description": "Prototipo de comunicación cliente-servidor con Node.js y JSON para plataforma SOC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["cliente-servidor", "nodejs", "soc", "http", "json"],
+  "author": "Isaac Jelal Simbaña Rodriguez",
+  "license": "ISC"
+}
